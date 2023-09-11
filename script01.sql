@@ -1,25 +1,47 @@
+-- Ex07
 DO $$
 DECLARE
-base NUMERIC(5,2);
-altura NUMERIC(5,2);
-area NUMERIC(5,2);
-preco NUMERIC(5,2);
-limite_inferior NUMERIC(5,2) := 1.0;
-limite_superior NUMERIC(5,2) := 10.0;
-valor_inferior NUMERIC(5,2) := 60.0;
-valor_superior NUMERIC(5,2) := 70.0;
+ano_nasc INT ;
+ano_atual INT;
+idade INT;
+limite_inferior INT := 1980;
+limite_superior INT := 2000;
+ano_inferior INT := 2010;
+ano_superior INT := 2020;
 BEGIN
-base := floor(random() * (limite_superior - limite_inferior + 1) + limite_inferior)::NUMERIC;
-altura := floor(random() * (limite_superior - limite_inferior + 1) + limite_inferior)::NUMERIC;
-area = base * altura;
+ano_nasc := floor(random() * (limite_superior - limite_inferior + 1) + limite_inferior)::NUMERIC;
+ano_atual := floor(random() * (ano_superior - ano_inferior + 1) + ano_inferior)::NUMERIC;
 
-preco := floor(random() * (valor_superior - valor_inferior + 1) + valor_inferior)::NUMERIC;
+idade := ano_atual - ano_nasc;
 
-RAISE NOTICE 'A base é %', base;
-RAISE NOTICE 'A altura é %', altura;
-RAISE NOTICE 'A área é %', area;
-RAISE NOTICE 'O valor por metro quadrado é %', preco;
+RAISE NOTICE 'O ano de nascimento é %', ano_nasc;
+RAISE NOTICE 'O ano atual é %', ano_atual;
+RAISE NOTICE 'A idade é %', idade;
 END $$;
+
+-- Ex06
+-- DO $$
+-- DECLARE
+-- base NUMERIC(5,2);
+-- altura NUMERIC(5,2);
+-- area NUMERIC(5,2);
+-- preco NUMERIC(5,2);
+-- limite_inferior NUMERIC(5,2) := 1.0;
+-- limite_superior NUMERIC(5,2) := 10.0;
+-- valor_inferior NUMERIC(5,2) := 60.0;
+-- valor_superior NUMERIC(5,2) := 70.0;
+-- BEGIN
+-- base := floor(random() * (limite_superior - limite_inferior + 1) + limite_inferior)::NUMERIC;
+-- altura := floor(random() * (limite_superior - limite_inferior + 1) + limite_inferior)::NUMERIC;
+-- area = base * altura;
+
+-- preco := floor(random() * (valor_superior - valor_inferior + 1) + valor_inferior)::NUMERIC;
+
+-- RAISE NOTICE 'A base é %', base;
+-- RAISE NOTICE 'A altura é %', altura;
+-- RAISE NOTICE 'A área é %', area;
+-- RAISE NOTICE 'O valor por metro quadrado é %', preco;
+-- END $$;
 
 -- Ex05
 -- DO $$
