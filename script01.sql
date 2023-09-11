@@ -1,24 +1,42 @@
 DO $$
 DECLARE
-valor_a NUMERIC(5,2);
-valor_b NUMERIC(5,2);
-valor_c NUMERIC(5,2);
-delta NUMERIC(5,2);
-limite_inferior NUMERIC(5,2) := 1.0;
-limite_superior NUMERIC(5,2) := 10.0;
+num INT;
+antecessor INT;
+sucessor INT;
+limite_inferior INT := 1;
+limite_superior INT := 100;
 BEGIN
-valor_a := floor(random() * (limite_superior - limite_inferior + 1) + limite_inferior)::NUMERIC;
-valor_b := floor(random() * (limite_superior - limite_inferior + 1) + limite_inferior)::NUMERIC;
-valor_c := floor(random() * (limite_superior - limite_inferior + 1) + limite_inferior)::NUMERIC;
+num := floor(random() * (limite_superior - limite_inferior + 1) + limite_inferior)::NUMERIC;
+antecessor := num -1;
+sucessor := num +1;
 
-delta := (valor_b^2) -4*(valor_a*valor_c);
-
-RAISE NOTICE 'O valor de A é %', valor_a;
-RAISE NOTICE 'O valor de B é %', valor_b;
-RAISE NOTICE 'O valor de C é %', valor_c;
-
-RAISE NOTICE 'O valor de delta é %',delta;
+RAISE NOTICE 'O número é %', num;
+RAISE NOTICE 'O valor antecessor de % é %', num,antecessor;
+RAISE NOTICE 'O valor sucessor de % é %', num, sucessor;
 END $$;
+
+-- Ex04
+-- DO $$
+-- DECLARE
+-- valor_a NUMERIC(5,2);
+-- valor_b NUMERIC(5,2);
+-- valor_c NUMERIC(5,2);
+-- delta NUMERIC(5,2);
+-- limite_inferior NUMERIC(5,2) := 1.0;
+-- limite_superior NUMERIC(5,2) := 10.0;
+-- BEGIN
+-- valor_a := floor(random() * (limite_superior - limite_inferior + 1) + limite_inferior)::NUMERIC;
+-- valor_b := floor(random() * (limite_superior - limite_inferior + 1) + limite_inferior)::NUMERIC;
+-- valor_c := floor(random() * (limite_superior - limite_inferior + 1) + limite_inferior)::NUMERIC;
+
+-- delta := (valor_b^2) -4*(valor_a*valor_c);
+
+-- RAISE NOTICE 'O valor de A é %', valor_a;
+-- RAISE NOTICE 'O valor de B é %', valor_b;
+-- RAISE NOTICE 'O valor de C é %', valor_c;
+
+-- RAISE NOTICE 'O valor de delta é %',delta;
+-- END $$;
 
 -- Ex03
 -- DO $$
