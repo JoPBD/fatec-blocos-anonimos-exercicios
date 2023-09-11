@@ -1,14 +1,37 @@
 DO $$
 DECLARE
-celsius NUMERIC(5,2);
-fahrenheit NUMERIC(5,2);
-limite_inferior NUMERIC(5,2) := 20.0;
-limite_superior NUMERIC(5,2) := 30.0;
+valor_a NUMERIC(5,2);
+valor_b NUMERIC(5,2);
+valor_c NUMERIC(5,2);
+delta NUMERIC(5,2);
+limite_inferior NUMERIC(5,2) := 1.0;
+limite_superior NUMERIC(5,2) := 10.0;
 BEGIN
-celsius := floor(random() * (limite_superior - limite_inferior + 1) + limite_inferior)::NUMERIC;
-fahrenheit := (celsius * 1.8) + 32;
-RAISE NOTICE 'O valor em celsius é %, convertendo para fahrenheit fica %',celsius, fahrenheit;
+valor_a := floor(random() * (limite_superior - limite_inferior + 1) + limite_inferior)::NUMERIC;
+valor_b := floor(random() * (limite_superior - limite_inferior + 1) + limite_inferior)::NUMERIC;
+valor_c := floor(random() * (limite_superior - limite_inferior + 1) + limite_inferior)::NUMERIC;
+
+delta := (valor_b^2) -4*(valor_a*valor_c);
+
+RAISE NOTICE 'O valor de A é %', valor_a;
+RAISE NOTICE 'O valor de B é %', valor_b;
+RAISE NOTICE 'O valor de C é %', valor_c;
+
+RAISE NOTICE 'O valor de delta é %',delta;
 END $$;
+
+-- Ex03
+-- DO $$
+-- DECLARE
+-- celsius NUMERIC(5,2);
+-- fahrenheit NUMERIC(5,2);
+-- limite_inferior NUMERIC(5,2) := 20.0;
+-- limite_superior NUMERIC(5,2) := 30.0;
+-- BEGIN
+-- celsius := floor(random() * (limite_superior - limite_inferior + 1) + limite_inferior)::NUMERIC;
+-- fahrenheit := (celsius * 1.8) + 32;
+-- RAISE NOTICE 'O valor em celsius é %, convertendo para fahrenheit fica %',celsius, fahrenheit;
+-- END $$;
 
 -- Ex02
 -- DO $$
